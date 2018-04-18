@@ -3,18 +3,18 @@ import java.util.Scanner;
 
 public class FileSize {
     public static long getFile(File file) {
-        long len = 0;
+        long size = 0;
         File[] list = file.listFiles();
         if (list == null || list.length == 0) {
-            return len;
+            return size;
         }
         for (File f : list) {
             if (f.isFile())
-                len += f.length();
+                size += f.length();
             else
-                len += getFile(f);
+                size += getFile(f);
         }
-        return len;
+        return size;
     }
 
     public static void main(String[] args) {
